@@ -23,7 +23,7 @@ def select_random_users_to_pay_difference(user_ids: list, rest_of_division: int)
 
     return result
 
-def calculate_price_for_each_user(price: int, user_ids: list) -> dict:
+def calculate_price_for_each_user(price: float, user_ids: list) -> dict:
     price = remove_floating_point(price)
     value_per_person, rest_of_division= equally_divided_price_and_rest(price, len(user_ids))
     price_for_each_user = dict()
@@ -37,9 +37,17 @@ def calculate_price_for_each_user(price: int, user_ids: list) -> dict:
     for payer in payers_of_the_difference:
         price_for_each_user[payer] += 1
 
+    # add floating point back to the values
+    for key, value in price_for_each_user.items():
+        price_for_each_user[key] = add_floating_point(value)
+
     return price_for_each_user
 
 def show_values(values: dict) -> None:
     for k, v in values.items():
-        print(f"user: {k}, value: {add_floating_point(v)}")
-    print(f"sum: {add_floating_point(sum(values.values()))}")
+        print(f"user: {k}, value: {v}")
+    print(f"sum: {sum(values.values())}")
+
+
+value = calculate_price_for_each_user(100, [1,2,3])
+show_values(value)
