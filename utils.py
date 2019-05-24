@@ -39,7 +39,7 @@ def calculate_price_for_each_user(price: int, user_ids: list) -> dict:
 
     return price_for_each_user
 
-def show_values(values: dict):
+def show_values(values: dict) -> None:
     for k, v in values.items():
         print(f"user: {k}, value: {add_floating_point(v)}")
     print(f"sum: {add_floating_point(sum(values.values()))}")
