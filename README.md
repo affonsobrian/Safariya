@@ -1,2 +1,2 @@
 # Safariya
-API Project for the control of information inside companies. 
+API project for easily divide money between users
