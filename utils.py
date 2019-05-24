@@ -47,7 +47,3 @@ def show_values(values: dict) -> None:
     for k, v in values.items():
         print(f"user: {k}, value: {v}")
     print(f"sum: {sum(values.values())}")
-
-
-value = calculate_price_for_each_user(100, [1,2,3])
-show_values(value)
